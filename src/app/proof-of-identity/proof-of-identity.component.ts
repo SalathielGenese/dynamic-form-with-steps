@@ -24,7 +24,9 @@ export class ProofOfIdentityComponent implements StepAware, OnInit
 
     switch ( this.category ) {
       case Category.PERSON:
-        form.addControl( 'nationalIdentityCard', this.fb.control( null, Validators.required ) );
+        if ( !form.controls.nationalIdentityCard ) {
+          form.addControl( 'nationalIdentityCard', this.fb.control( null, Validators.required ) );
+        }
         break;
       case Category.ORGANIZATION:
         form.addControl( 'registrationCertificate', this.fb.control( null, Validators.required ) );
@@ -38,10 +40,14 @@ export class ProofOfIdentityComponent implements StepAware, OnInit
 
     switch ( this.category ) {
       case Category.PERSON:
-        form.removeControl( 'nationalIdentityCard' );
+        if ( !form.controls.nationalIdentityCard ) {
+          form.removeControl( 'nationalIdentityCard' );
+        }
         break;
       case Category.ORGANIZATION:
-        form.removeControl( 'registrationCertificate' );
+        if ( !form.controls.registrationCertificate ) {
+          form.removeControl( 'registrationCertificate' );
+        }
         break;
     }
   }

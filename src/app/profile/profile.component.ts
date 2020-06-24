@@ -24,13 +24,17 @@ export class ProfileComponent implements StepAware, OnInit
 
     switch ( this.category ) {
       case Category.PERSON:
-        form.addControl( 'birthDate', this.fb.control( null, Validators.required ) );
-        form.addControl( 'firstName', this.fb.control( null, Validators.required ) );
-        form.addControl( 'lastName', this.fb.control( null, Validators.required ) );
+        if ( !form.controls.birthDate ) {
+          form.addControl( 'birthDate', this.fb.control( null, Validators.required ) );
+          form.addControl( 'firstName', this.fb.control( null, Validators.required ) );
+          form.addControl( 'lastName', this.fb.control( null, Validators.required ) );
+        }
         break;
       case Category.ORGANIZATION:
-        form.addControl( 'registrationNumber', this.fb.control( null, Validators.required ) );
-        form.addControl( 'name', this.fb.control( null, Validators.required ) );
+        if ( !form.controls.registrationNumber ) {
+          form.addControl( 'registrationNumber', this.fb.control( null, Validators.required ) );
+          form.addControl( 'name', this.fb.control( null, Validators.required ) );
+        }
         break;
     }
   }
