@@ -1,0 +1,13 @@
+<label>
+  <span>
+    What Category Are You In?
+  </span>
+  <select [(ngModel)]="category" (ngModelChange)="categoryChange.emit( category )">
+    <option [value]="Category.PERSON">
+      {{ Category.PERSON }}
+    </option>
+    <option [value]="Category.ORGANIZATION">
+      {{ Category.ORGANIZATION }}
+    </option>
+  </select>
+</label>

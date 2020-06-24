@@ -1,0 +1,33 @@
+<ng-container *ngIf="category && controlContainer.control" [formGroup]="controlContainer.control" [ngSwitch]="category">
+  <ng-container *ngSwitchCase="Category.PERSON">
+    <label>
+      <span>First Name:</span>
+      <input type="text" formControlName="firstName">
+    </label>
+
+    <br>
+    <label>
+      <span>Last Name:</span>
+      <input type="text" formControlName="lastName">
+    </label>
+
+    <br>
+    <label>
+      <span>Birth Date:</span>
+      <input type="text" formControlName="birthDate">
+    </label>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="Category.ORGANIZATION">
+    <label>
+      <span>Name:</span>
+      <input type="text" formControlName="name">
+    </label>
+
+    <br>
+    <label>
+      <span>Registration Number:</span>
+      <input type="text" formControlName="registrationNumber">
+    </label>
+  </ng-container>
+</ng-container>

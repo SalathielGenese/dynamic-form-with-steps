@@ -1,0 +1,16 @@
+<ng-container *ngIf="category && controlContainer.control" [formGroup]="controlContainer.control">
+  <ng-container [ngSwitch]="category">
+    <label *ngSwitchCase="Category.PERSON">
+      <span>National Identity Card:</span>
+
+      <br>
+      <input type="file" formControlName="nationalIdentityCard">
+    </label>
+    <label *ngSwitchCase="Category.ORGANIZATION">
+      <span>Registration Certificate:</span>
+
+      <br>
+      <input type="file" formControlName="registrationCertificate">
+    </label>
+  </ng-container>
+</ng-container>
