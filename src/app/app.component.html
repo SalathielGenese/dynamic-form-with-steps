@@ -9,7 +9,7 @@
 
   <hr>
   <div style="text-align: right">
-    <button *ngIf="Step.CATEGORY !== step.step" (click)="previousStep()" [disabled]="step.step === Step.CATEGORY" type="button">
+    <button *ngIf="Step.CATEGORY !== step.step" (click)="previousStep()" type="button">
       Previous
     </button>
     <button type="button" (click)="nextStep()" [disabled]="!canNextStep" style="margin-left: .5em">
